@@ -1,0 +1,373 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/scripts.js"></script>
+
+
+    <!-- <script>
+    //var valor=document.getElementById(dos).value
+    
+    //var resultat ='num1'+'num2'
+
+
+    //document.getElementById('apar').value = valor
+    var num1=0;
+    var num2=0;
+    var operador;
+    var resultat=0;
+        function posar(canvi){
+            var digit=document.getElementById(canvi).value;
+            
+        
+        if(num1==0){
+            num1=digit
+            document.getElementById('aparador').innerHTML=num1;
+        }
+        else if(operador ==('=') && num1>0 ){
+            borrar()
+            num1=digit
+            document.getElementById('aparador').innerHTML=num1;
+        }
+        else if(resultat!==0){
+                        
+            if(num2==0){
+                num2=digit
+            }
+            else{
+                num2 += digit
+            }
+            document.getElementById('aparador').innerHTML=num2;
+        }
+        else if(resultat!==0 || resultat==0 && operador==('-')){
+            if(num2==0){
+                num2=digit
+            }
+            else{
+                num2 += digit
+            }
+            document.getElementById('aparador').innerHTML=num2;
+        }
+
+        else{
+           num1 += digit
+           document.getElementById('aparador').innerHTML=num1;
+        }
+        }
+        function borrar(){
+                num1=0;
+                num2=0;
+                resultat =0
+                operador =('')
+                document.getElementById('aparador').innerHTML=num1;
+        }
+        function sumar(){
+            if(num2==('x')){
+                num2=0
+            }
+            if(resultat==0 && operador!==('+')){
+                resultat = parseInt(num1) + parseInt(num2);
+                
+            }
+            else if(resultat>=0){
+                if(operador==('-')){
+                    resultat=resultat-num2;
+                    }
+                else if(operador==('*')){
+                    if (num2==0){
+                        num2=0
+                    }
+                    else{
+                    resultat=resultat*num2;
+                    }
+                }
+                else if(operador==('/')){
+                    if(num2==0){
+                        num2=0;
+                    }
+                    else{
+                    resultat=resultat/num2;
+                    resultat=parseInt(resultat.toFixed(3));
+                }
+                }
+                else{
+                    resultat =  resultat + parseInt(num2)
+                }
+            }
+            else{
+                    resultat =  resultat + parseInt(num2)
+            }
+            operador= '+'
+            document.getElementById('aparador').innerHTML=resultat;
+            num2=0
+            
+        }
+        function restar(){
+            if(num2==('x')){
+                num2=0;
+            }
+            else if(resultat==0 && operador!== ('-')) {
+                    resultat=num1 - num2;      
+                }
+            else if(resultat>=0){
+                if(operador==('+')){
+                    resultat= resultat + parseInt(num2);
+                }
+                else if(operador==('*')){
+                    if(num2==0){
+                        num2=0;
+                    }
+                    else{
+                    resultat=resultat*num2;
+                    }
+                }
+                else if(operador==('/')){
+                    if(num2==0){
+                        num2=0
+                    }
+                    else{
+                        resultat=resultat/num2;
+                        resultat=parseFloat(resultat.toFixed(3));
+                    }
+                }
+                else{
+                resultat = resultat-num2;
+                }
+            }
+            else{
+                resultat = resultat - num2; 
+            }
+            operador= '-';
+            document.getElementById('aparador').innerHTML=resultat;
+            num2=0;
+        }
+        function multiplicar(){
+            if(num1>=0 && num2==0 && resultat==0){
+                if(operador==('*')){
+                    num2=0
+                    operador=('*')
+                    // intentem arreglar  33*0 = 0 * (el numero es concatena al num1)
+                    
+
+
+
+                }
+                else{
+                resultat=num1
+                operador='*'
+                }
+            }
+            else if(resultat>=0){
+                if(num2==('x')){
+                    num2=0; 
+                    operador='*'
+                }
+                else if (operador==('+')){
+                    resultat= resultat + parseInt(num2);
+                    operador='*'
+                }
+                else if(operador==('-')){
+                    resultat=resultat-num2;
+                    operador='*'
+                    }
+                else if(operador==('/')){
+                    if (num2==0){
+                        num2=0;
+                    }
+                    else{
+                    resultat=resultat/num2;
+                    resultat=parseFloat(resultat.toFixed(3));
+                    }
+                operador='*'
+                }
+                else if(operador==('*') && num2==0){
+                    if(num2.length ==1){
+                        resultat= resultat*num2;
+                    }
+                    else{
+                        num2=1;
+                    }
+                    operador='*'
+                }
+               
+                else if(operador==('=')){
+                    num2=0;
+                    operador='**'
+                }
+                else{
+                    resultat=resultat*num2  
+                    operador='*'  
+                }
+            }
+            else if(resultat<0){
+                num2=0
+                operador='*'
+            }      
+            else{
+                resultat=resultat*num2  
+                operador='*'
+            }
+            
+            document.getElementById('aparador').innerHTML=resultat;
+            num2=0
+        }
+        function dividir(){
+            if(num2==('x')){
+                num2=0;
+            }
+            else if(resultat==0 && operador!==('/')){
+                resultat=num1;
+            }
+            else if(resultat<0){
+                num2=0;
+            }
+            else if(resultat>=0){
+                if(operador==('+')){
+                    resultat=resultat +parseInt(num2);
+                }
+                else if(operador==('-')){
+                    resultat=resultat-num2;
+                }
+                else if(operador==('*')){
+                    if(num2==0){
+                        num2=0;
+                    }
+                    else{
+                    resultat=resultat*num2;
+                    }
+                }
+                else if(operador==('=')){
+                    num2=0;
+                }
+                else if(operador==('/')){
+                    if(num2==0){
+                        num2=0;
+                    }
+                    else{
+                        resultat=resultat/num2;
+                        resultat=parseFloat(resultat.toFixed(3));
+                    }
+                }
+                else{
+                    resultat=resultat / num2
+                    resultat=parseFloat(resultat.toFixed(3));
+                    
+                }
+            }
+            else{
+                resultat=resultat / num2
+                resultat=parseFloat(resultat.toFixed(3));
+            }
+            document.getElementById('aparador').innerHTML=resultat;
+            operador=('/')
+            num2=0;
+        }
+        function igual(){
+            if(operador=='+'){
+                resultat = resultat + parseInt(num2);
+                operador= '='
+                num2=0;
+            }
+            else if(operador=='-'){
+                resultat = resultat - num2;
+                operador= '='
+                num2=0
+            }
+            else if(operador=='*'){
+                if(num2==0){
+                    if(num2.length ==1){
+                        resultat= resultat*num2;
+                        
+                    }
+                    else{
+                        num2=1;
+                    }
+                }
+                else{
+                    resultat = resultat *num2;
+                }
+                operador= '='
+                num2= ('x');
+            }
+            else if(operador==('/')){
+                if(num2==0){
+                    num2=0
+                }
+                else{
+                resultat=resultat/num2;
+                resultat= parseFloat(resultat.toFixed(3));
+                operador= '='
+                num2=0;
+                }
+            }
+            else{
+                num2=0
+            }
+        document.getElementById('aparador').innerHTML=resultat;
+       
+    }
+       
+
+
+    </script> -->
+
+
+
+
+
+</head>
+<body>
+
+<div class="contenidor container row">
+    
+    <div class="apara col-12 text-right" id="aparador"> <p id="escrit"></p> </div>
+    <div class="global row col-12 justify-content-between">
+
+        <div class="pad-num row col-8 flex-wrap-reverse ">  
+            <div class="col-8 btn-secondary boto" id="0" onclick="posar('0')"> <p class="centre">0</p> </div>
+            <div class="col-4 btn-secondary boto" id="." onclick="decimal()"> <p class="centre">,</p> </div>
+            <div class="col-4 btn-secondary boto" id="1" onclick="posar('1')"><p class="centre">1</p> </div>
+            <div class="col-4 btn-secondary boto" id="2" onclick="posar('2')"><p class="centre">2</p> </div>
+            <div class="col-4 btn-secondary boto" id="3" onclick="posar('3')"><p class="centre">3</p></div>
+            <div class="col-4 btn-secondary boto" id="4" onclick="posar('4')" ><p class="centre">4</p></div>
+            <div class="col-4 btn-secondary boto" id="5" onclick="posar('5')"><p class="centre">5</p> </div>
+            <div class="col-4 btn-secondary boto" id="6" onclick="posar('6')"><p class="centre">6</p></div>
+            <div class="col-4 btn-secondary boto" id="7" onclick="posar('7')"><p class="centre">7</p> </div>
+            <div class="col-4 btn-secondary boto" id="8" onclick="posar('8')"><p class="centre">8</p> </div>
+            <div class="col-4 btn-secondary boto" id="9" onclick="posar('9')"><p class="centre">9</p> </div>
+        </div>
+
+        <div class="pad-opera row col justify-content-around">
+            <div class="operacions col-12 row">
+                <div class="col-6 btn-secondary boto" id="borra-ultim" onclick="borrar('borra-ultim')"><p class="centre">C</p> </div>
+                <div class="col-6 btn-secondary boto btn-danger" id="bor" onclick="borrar('bor')"><p class="centre">CA</p> </div>
+                <div class="col-6 btn-secondary boto" id="multiplica" onclick="multiplicar('')"><p class="centre">X</p> </div>
+                <div class="col-6 btn-secondary boto" id="divideix" onclick="dividir()"><p class="centre">/</p>  </div>
+            </div>
+
+            <div class="minipad row col-12">
+                <div class="col-6 d-flex btn-secondary prova boto2" id="suma" onclick="sumar()"><p class="centre">+</p> </div>
+                <div class="col row">
+                    <div class=" col-12 btn-secondary prova boto" id="resta" onclick="restar()"><p class="centre">-</p> </div>
+                    <div class=" col-12 btn-secondary prova btn-warning boto" id="igual" onclick="igual()"><p class="centre">=</p> </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    
+  
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+ @font-face{
+     font-family: DS-DIGI;
+     src: url(../fonts/DS-DIGI.TTF);
+ }
+*{
+    box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+}
+      body{
+            background-color: rgb(121, 121, 121);
+        }
+        .contenidor{
+            background-color: rgb(66, 66, 66);
+            width: 60%;
+            border-radius: 5px;
+            height: auto;
+            margin: 20px auto;
+            padding: 25px;
+            justify-content: center;
+            max-width: 800px;
+            min-width: 500px;
+            
+            
+        }
+        
+       .apara{
+           padding: 0;
+           width: 100%;
+           height: 80px;
+           margin: 20px auto ;
+           border: 5px solid #000;
+           background-color: #d4dac8;
+           font-size: 48px;
+           overflow: hidden;
+           text-overflow: ellipsis; 
+           font-family: DS-DIGI;
+           font-weight: bolder;
+           text-align: center;
+
+       }
+       .global{
+           padding: 0;
+           margin: 15px 0;
+           width: 100%;
+          
+       .pad-opera{
+         padding: 0;
+         margin-left: 10px;
+       }
+       .minipad{
+           align-content: stretch;
+           
+       }
+     
+      
+       .centre{
+           margin: auto;
+           
+       }
+       .btn-secondary{
+           cursor: pointer;
+           
+           user-select: none;
+           
+       }
+       .boto{
+            //margin: 2px 0 ;
+            
+            height: 90px;
+           padding: 0;
+           display: flex;
+           border: 2px solid #000;
+           
+           
+       }
+       .boto2{
+           height: 180px;
+           padding: 0;
+           text-align: center;
+           border: 2px solid #000;
+           
+       }
+       .prova{
+           min-width: 30px;
+       }
+    }
+    
